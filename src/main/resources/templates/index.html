@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Libros</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Catálogo de Libros de Gutendex</h1>
+
+    <!-- Mensaje de éxito o error -->
+    <div th:if="${message}" class="alert alert-info" th:text="${message}"></div>
+
+    <!-- Botones de búsqueda y filtro -->
+    <div class="row mb-4">
+        <div class="col-md-12 mb-2">
+            <!-- Formulario de búsqueda por título -->
+            <form th:action="@{/search}" method="post">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="title" placeholder="Buscar libro por título">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary btn-block w-100">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-12 mb-2">
+            <!-- Formulario de filtro por idioma -->
+            <form th:action="@{/filter}" method="post">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="language" placeholder="Filtrar libros por idioma (ej: en, es)">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-info btn-block w-100">Filtrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-12 mb-2">
+            <!-- Formulario de filtro por rango de años para autores vivos -->
+            <form th:action="@{/authorsInYearRange}" method="post">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="number" class="form-control" name="startYear" placeholder="Año de inicio">
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" name="endYear" placeholder="Año de fin">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-warning btn-block w-100">Buscar Autores Vivos</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-12 mb-2">
+            <!-- Botón para ver los libros más descargados -->
+            <form th:action="@{/topDownloadedBooks}" method="get">
+                <button type="submit" class="btn btn-success btn-block w-100">Top Libros Más Descargados</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tabla de libros -->
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Idioma</th>
+            <th>Número de Descargas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}">1</td>
+            <td th:text="${book.title}">Pride and Prejudice</td>
+            <td>
+                <ul>
+                    <li th:each="author : ${book.authors}" th:text="${author.name}">Jane Austen</li>
+                </ul>
+            </td>
+            <td th:text="${book.languages}">en</td>
+            <td th:text="${book.download_count}">10000</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

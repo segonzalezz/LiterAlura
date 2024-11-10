@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Autores en el Rango de Años</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Autores entre 1819 y 1891</h1>
+
+    <!-- Mensaje de éxito o error -->
+    <div th:if="${message}" class="alert alert-info" th:text="${message}"></div>
+
+    <!-- Tabla de autores -->
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Año de Nacimiento</th>
+            <th>Año de Muerte</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="author : ${authors}">
+            <td th:text="${author.name}">Nombre del Autor</td>
+            <td th:text="${author.birthYear}">Año de Nacimiento</td>
+            <td th:text="${author.deathYear}">Año de Muerte</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
