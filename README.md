@@ -11,12 +11,19 @@ Luego en la carperta src/main/resources/templates se encuentran los templates:
 
 Despues en la carpeta src/main/resources/ application.properties se encuentra la conexión a la base de datos.
 ### Imagenes
-- Pantalla principal:
+- 1:
 <div align="center"> 
   
 ![Alter](src/main/java/org/example/img/img.png)
 
 </div>
+- 2:
+<div align="center"> 
+  
+![Alter](src/main/java/org/example/img/img_1.png)
+
+</div>
+
 
 
 
