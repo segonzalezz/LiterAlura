@@ -14,7 +14,7 @@ Despues en la carpeta src/main/resources/ application.properties se encuentra la
 - Pantalla principal:
 <div align="center"> 
   
-![Alter](src/img.png)
+![Alter](src/main/java/org/example/img/img.png)
 
 </div>
 
