@@ -12,6 +12,11 @@ Luego en la carperta src/main/resources/templates se encuentran los templates:
 Despues en la carpeta src/main/resources/ application.properties se encuentra la conexión a la base de datos.
 ### Imagenes
 - Pantalla principal:
+<div align="center"> 
+  
+![Alter](img/img.png)
+
+</div>
 
 
 
