@@ -14,7 +14,7 @@ Despues en la carpeta src/main/resources/ application.properties se encuentra la
 - Pantalla principal:
 <div align="center"> 
   
-![Alter](img/img.png)
+![Alter](src/img.png)
 
 </div>
 
